@@ -1,35 +1,40 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # ALGR
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-ALGR is an agricultural landcover generator that is designed to ease the
-integration of artificial agricultural landcover maps in the work flow
-of ecological modellers. The package is designed to generate landscapes
-using different algorithms, and then store the information in an output
-file that includes both a raster layer, and a list containing all
-information of the fields and farmers. This package allows to generate
-landscapes in a systematic reproducable way while controlling for
-different variables.
+ALGR is an agricultural landcover generator that is designed to ease the integration of artificial agricultural landcover maps in the work flow of ecological modellers. The package is designed to generate landscapes using different algorithms, and then store the information in an output file that includes both a raster layer, and a list containing all information of the fields and farmers. This package allows to  generate landscapes in a systematic reproducable  way while controlling for different variables.
 
 ## Installation
 
-You can install the development version of ALGR from
-[GitHub](https://github.com/) with:
+You can install the development version of ALGR from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("pogoyoly/ALGR")
 ```
 
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```{r example, message=FALSE, warning=FALSE}
 library(ALGR)
 ## basic example code
 r<-generate_pn(500,500,1,2,3,0.01,TRUE, "land_percentage", percetange = 70)
@@ -49,6 +54,6 @@ output<-establish_pac(potential_space= r,
 
 
 return_by_field(output, method = 1)
+
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
