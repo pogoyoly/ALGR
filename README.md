@@ -32,20 +32,20 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(ALGR)
 ## basic example code
-r<-generate_pn(500,500,1,2,3,0.01,TRUE, "land_percentage", percetange = 70)
+r<-generate_pn(500,500,1,1,3,0.005,TRUE, "land_percentage", percetange = 70)
 output<-establish_pac(potential_space= r,
-                         cell_size=1,
-                         includsion_value = 1,
-                         mean_field_size = 500,
-                         sd_field_size = 100,
-                         distribution = "norm",
-                         mean_shape_index = 1,
-                         sd_shape_index = 0.3,
-                         percent = 70,
-                         assign_farmers = TRUE,
-                         assign_mode = 2,
-                         mean_fields_per_farm = 3,
-                         sd_fields_per_farm = 3)
+                      cell_size=1,
+                      includsion_value = 1,
+                      mean_field_size = 500,
+                      sd_field_size = 100,
+                      distribution = "norm",
+                      mean_shape_index = 1,
+                      sd_shape_index = 0.3,
+                      percent = 90,
+                      assign_farmers = TRUE,
+                      assign_mode = 2,
+                      mean_fields_per_farm = 3,
+                      sd_fields_per_farm = 3)
 
 
 return_by_field(output, method = 1)
