@@ -4,6 +4,8 @@
 # ALGR
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/pogoyoly/ALGR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pogoyoly/ALGR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ALGR is an agricultural landcover generator that is designed to ease the
