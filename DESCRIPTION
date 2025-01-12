@@ -1,0 +1,36 @@
+Package: ALGR
+Title: Agricultural landscape generator
+Version: 1.0.0
+Authors@R:  c(
+    person("Eyal", "Goldstein", email = "pogoyoly@gmai.com",  role = c("aut", "cre")),
+    person("Antonia", "Deutcher", email = "antdeutscher@gmail.com", role = "ctb"),
+    person("Eamon", "O'keeffe", email = "eamon.okeeffe@stud.uni-goettingen.de", role = "ctb"),
+    person("Sebastian", "Hanss", email = "shanss@uni-goettingen.de", role = "ctb"))
+Maintainer: Eyal Goldstein <pogoyoly@gmail.com>
+Description: ALGR Generates artificial agricultural landscapes based on neutral landscapes and field geometires
+    <link to publicationn>
+    Artificial agricultural landscape generators are designed to 
+    systematically and realistically produce artificial maps of 
+    agricutltural dominated landscapes, which are meant to be used 
+    as an input for ecological models. 
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    ambient,
+    checkmate,
+    dplyr,
+    gdistance,
+    landscapemetrics,
+    matrixcalc,
+    raster,
+    sp,
+    terra,
+    glue,
+    lifecycle, 
+    rlang,
+    methods
