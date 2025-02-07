@@ -2,12 +2,12 @@
 % Please edit documentation in R/distribute_crops.R
 \name{distrubute_crops}
 \alias{distrubute_crops}
-\title{A function to distribute crops between fields on a LGrafEU output object}
+\title{A function to distribute crops between fields on a ALGR output object}
 \usage{
 distrubute_crops(output_obj, crops_matrix)
 }
 \arguments{
-\item{output_obj}{A LGraf placement output object}
+\item{output_obj}{A ALGR placement output object}
 
 \item{crops_matrix}{A crop matrix indexing each crop and its percentage in the landscape}
 }
@@ -15,7 +15,7 @@ distrubute_crops(output_obj, crops_matrix)
 A ALGR output object with crops assigned
 }
 \description{
-A function to distribute crops between fields on a LGrafEU output object
+A function to distribute crops between fields on a ALGR output object
 }
 \examples{
 r<-terra::rast(matrix(1, nrow=50, ncol=50))

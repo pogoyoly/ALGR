@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribute_farmers.R
 \name{distrubution_by_farmer}
 \alias{distrubution_by_farmer}
-\title{A function to fields between farmers on a LGrafEU output object}
+\title{A function to fields between farmers on a ALGR output object}
 \usage{
 distrubution_by_farmer(
   output_obj,
@@ -13,7 +13,7 @@ distrubution_by_farmer(
 )
 }
 \arguments{
-\item{output_obj}{a LGrafEU output object}
+\item{output_obj}{a ALGR output object}
 
 \item{assign_mode}{1 = unstructured distribution 2 = spatially strcutured distribution of fields}
 
@@ -27,7 +27,7 @@ distrubution_by_farmer(
 A LGraf output object with fields assined to farmers
 }
 \description{
-A function to fields between farmers on a LGrafEU output object
+A function to fields between farmers on a ALGR output object
 }
 \examples{
 r<-terra::rast(matrix(1, nrow=50, ncol=50))

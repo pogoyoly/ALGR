@@ -1,8 +1,8 @@
 
 
-#'  A function to fields between farmers on a LGrafEU output object
+#'  A function to fields between farmers on a ALGR output object
 #'
-#' @param output_obj a LGrafEU output object
+#' @param output_obj a ALGR output object
 #' @param assign_mode 1 = unstructured distribution 2 = spatially strcutured distribution of fields
 #' @param mean_fields_per_farm mean fields per farmer
 #' @param sd_fields_per_farm sd fields per farmer

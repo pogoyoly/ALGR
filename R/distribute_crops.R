@@ -1,8 +1,8 @@
 
 
-#' A function to distribute crops between fields on a LGrafEU output object
+#' A function to distribute crops between fields on a ALGR output object
 #'
-#' @param output_obj A LGraf placement output object
+#' @param output_obj A ALGR placement output object
 #' @param crops_matrix A crop matrix indexing each crop and its percentage in the landscape
 #'
 #' @return A ALGR output object with crops assigned
