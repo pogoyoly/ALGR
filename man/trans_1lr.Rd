@@ -5,7 +5,7 @@
 \title{A one layer transformation that allows the expansion of the potential space to
 areas with submoptimal landscapes based on a co-variant probability}
 \usage{
-trans_1lr(rast, landcover, aggregation, arabel_val = 1)
+trans_1lr(rast, landcover, aggregation, arable_val = 1)
 }
 \arguments{
 \item{rast}{A type feature raster}
@@ -14,7 +14,7 @@ trans_1lr(rast, landcover, aggregation, arabel_val = 1)
 
 \item{aggregation}{A number that defines how aggregated he potential space will be}
 
-\item{arabel_val}{the value of arable fields in your landcover raster}
+\item{arable_val}{the value of arable fields in your landcover raster}
 }
 \description{
 A one layer transformation that allows the expansion of the potential space to
@@ -39,7 +39,7 @@ set.seed(123)
 modified_potential_space<-generate_pn(200,200,1,2,3,0.002,TRUE,
                                                "land_percentage", percetange = 50)
 
-result<-ALGR::trans_1lr(modified_potential_space,map,5, arabel_val = 1)
+result<-ALGR::trans_1lr(modified_potential_space,map,5, arable_val = 1)
 par(mfrow=c(1,2))
 terra::plot(original_potential_space)
 terra::plot(result)

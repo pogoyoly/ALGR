@@ -102,13 +102,13 @@ confuslr <- function(rst, landcover) {
 #'
 #' @param transition the transition matrix from the confus function
 #' @param rst the raster from which the transition occurs
-#' @param arabel_val value of arable fields
+#' @param arable_val value of arable fields
 #'
 #'
 #' @noRd
 #'
 #'
-translr <- function(transition, rst, arabel_val) {
+translr <- function(transition, rst, arable_val) {
   tran <- transition
   transform <- function(x) {
     # Initialize result vector
@@ -127,7 +127,7 @@ translr <- function(transition, rst, arabel_val) {
           }
           if (isTRUE(dice < tranz)) {
             val <- i - 1
-            if(val == arabel_val){
+            if(val == arable_val){
               z <- 1
 
             }
@@ -162,7 +162,7 @@ translr <- function(transition, rst, arabel_val) {
 #' @param rast A type feature raster
 #' @param landcover A landcover raster
 #' @param aggregation A number that defines how aggregated he potential space will be
-#' @param arabel_val the value of arable fields in your landcover raster
+#' @param arable_val the value of arable fields in your landcover raster
 #'
 #' @export
 #'
@@ -185,7 +185,7 @@ translr <- function(transition, rst, arabel_val) {
 #'modified_potential_space<-generate_pn(200,200,1,2,3,0.002,TRUE,
 #'                                                "land_percentage", percetange = 50)
 #'
-#'result<-ALGR::trans_1lr(modified_potential_space,map,5, arabel_val = 1)
+#'result<-ALGR::trans_1lr(modified_potential_space,map,5, arable_val = 1)
 #'par(mfrow=c(1,2))
 #'terra::plot(original_potential_space)
 #'terra::plot(result)
@@ -194,10 +194,10 @@ translr <- function(transition, rst, arabel_val) {
 #'
 #'
 #'
-trans_1lr <- function(rast, landcover, aggregation, arabel_val = 1) {
+trans_1lr <- function(rast, landcover, aggregation, arable_val = 1) {
 
 
-  target_value <- arabel_val
+  target_value <- arable_val
 
   classified_landcover <- terra::app(landcover, function(x) ifelse(x == target_value, 1, 0))
 
@@ -206,7 +206,7 @@ trans_1lr <- function(rast, landcover, aggregation, arabel_val = 1) {
   con_mat <- confuslr(rast, classified_landcover)
 
   # Apply the transition function (assuming `trans` is defined elsewhere)
-  trans_rast <- translr(con_mat, rast, arabel_val)
+  trans_rast <- translr(con_mat, rast, arable_val)
 
   # Aggregate the raster with modal function in terra
   #trans_rast <- terra::aggregate(trans_rast, fact = aggregation, fun = "max", na.rm = FALSE)

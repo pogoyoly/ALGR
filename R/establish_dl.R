@@ -4,8 +4,8 @@
 #' @param potential_space a raster including a potential space category for field placement
 #' @param cell_size cell size for output
 #' @param includsion_value inclusion value for the potential space raster
-#' @param mean_field_size mean field size counted by number of cells from a normal distribution
-#' @param sd_field_size sd field size counted by number of cells from a normal distribution
+#' @param mean_field_size mean field size counted by number of cells
+#' @param sd_field_size sd field size counted by number of cells
 #' @param distribution distribution type for field size
 #' @param mean_shape_index mean shape index calculated by a relation between width/length of placement
 #' @param sd_shape_index sd shape index calculated by a relation between width/length of placement

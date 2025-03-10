@@ -26,9 +26,9 @@ establish_pac(
 
 \item{additional_lim}{for use in case of inclusion of a raod raster}
 
-\item{mean_field_size}{mean field size counted by number of cells from a normal distribution}
+\item{mean_field_size}{mean field size counted by number of cells}
 
-\item{sd_field_size}{sd field size counted by number of cells from a normal distribution}
+\item{sd_field_size}{sd field size counted by number of cells}
 
 \item{distribution}{either norm or lnorm}
 
