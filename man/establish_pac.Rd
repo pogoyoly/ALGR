@@ -14,11 +14,7 @@ establish_pac(
   distribution = "norm",
   mean_shape_index,
   sd_shape_index,
-  percent,
-  assign_farmers,
-  assign_mode,
-  mean_fields_per_farm,
-  sd_fields_per_farm
+  percent
 )
 }
 \arguments{
