@@ -178,11 +178,7 @@ translr <- function(transition, rst, arabel_val) {
 #'                                                 distribution = "norm",
 #'                                                 mean_shape_index = 3,
 #'                                                 sd_shape_index = 0.3,
-#'                                                 percent = 95,
-#'                                                 assign_farmers = TRUE,
-#'                                                 assign_mode = 2,
-#'                                                 mean_fields_per_farm = 3,
-#'                                                 sd_fields_per_farm = 3)
+#'                                                 percent = 95)
 #'
 #'map<-return_by_arable_land(corresponding_fields, method =2)
 #'set.seed(123)
