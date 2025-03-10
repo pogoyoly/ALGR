@@ -9,11 +9,7 @@ output <- establish_dl(potential_space= r,
                                    distribution = "norm",
                                    mean_shape_index = 3,
                                    sd_shape_index = 0.3,
-                                   percent = .75,
-                                   assign_farmers = TRUE,
-                                   assign_mode = 2,
-                                   mean_fields_per_farm = 3,
-                                   sd_fields_per_farm = 3)
+                                   percent = .75)
 
 test_obj1 <- return_by_arable_land(output, method = 2)
 test_obj2 <- return_by_field(output, method = 2)

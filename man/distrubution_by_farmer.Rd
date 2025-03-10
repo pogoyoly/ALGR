@@ -39,11 +39,7 @@ map<-establish_pac(potential_space= r,
                                 distribution = "norm",
                                 mean_shape_index = 1,
                                 sd_shape_index = 0.3,
-                                percent = 75,
-                                assign_farmers = TRUE,
-                                assign_mode = 2,
-                                mean_fields_per_farm = 3,
-                                sd_fields_per_farm = 3)
+                                percent = 75)
 
 
 outcome<-distrubution_by_farmer(map,assign_mode = 1, mean_fields_per_farm =10,

@@ -41,14 +41,6 @@ establish_pac(
 \item{sd_shape_index}{sd shape index calculated by a relation between width/length of placement}
 
 \item{percent}{percent of the potential space to be filled with fields}
-
-\item{assign_farmers}{TRUE/FALSE for farmer assignment in model}
-
-\item{assign_mode}{1 = random assignment 2 = spatially structured assignment}
-
-\item{mean_fields_per_farm}{mean fields per farmer from a long normal distribution}
-
-\item{sd_fields_per_farm}{fields per farmer from a long normal distribution}
 }
 \value{
 LGraf object
@@ -66,11 +58,7 @@ output<-establish_pac(potential_space= r,
                          distribution = "norm",
                          mean_shape_index = 3,
                          sd_shape_index = 0.3,
-                         percent = 70,
-                         assign_farmers = TRUE,
-                         assign_mode = 2,
-                         mean_fields_per_farm = 3,
-                         sd_fields_per_farm = 3)
+                         percent = 70)
 
 
 return_by_field(output)

@@ -12,10 +12,6 @@
 #' @param mean_shape_index mean shape index calculated by a relation between width/length of placement
 #' @param sd_shape_index sd shape index calculated by a relation between width/length of placement
 #' @param percent percent of the potential space to be filled with fields
-#' @param assign_farmers TRUE/FALSE for farmer assignment in model
-#' @param assign_mode 1 = random assignment 2 = spatially structured assignment
-#' @param mean_fields_per_farm mean fields per farmer from a long normal distribution
-#' @param sd_fields_per_farm fields per farmer from a long normal distribution
 #'
 #' @return LGraf object
 #' @export
@@ -32,11 +28,7 @@
 #'                          distribution = "norm",
 #'                          mean_shape_index = 3,
 #'                          sd_shape_index = 0.3,
-#'                          percent = 70,
-#'                          assign_farmers = TRUE,
-#'                          assign_mode = 2,
-#'                          mean_fields_per_farm = 3,
-#'                          sd_fields_per_farm = 3)
+#'                          percent = 70)
 #'
 #'
 #' return_by_field(output)
@@ -51,11 +43,7 @@ establish_pac<-function(potential_space,
                                      distribution = "norm",
                                      mean_shape_index,
                                      sd_shape_index,
-                                     percent,
-                                     assign_farmers,
-                                     assign_mode,
-                                     mean_fields_per_farm,
-                                     sd_fields_per_farm
+                                     percent
 ){
 
 
@@ -67,10 +55,6 @@ establish_pac<-function(potential_space,
   checkmate::assert_numeric(sd_shape_index)
   checkmate::assert_true(mean_shape_index >= 1 || mean_shape_index <= 2)
   checkmate::assert_numeric(percent)
-  checkmate::assert_logical(assign_farmers)
-  checkmate::assert_true(assign_mode == 1 || assign_mode == 2)
-  checkmate::assert_numeric(mean_fields_per_farm)
-  checkmate::assert_numeric(sd_fields_per_farm)
 
 
   if(is.null(additional_lim) == FALSE){
@@ -366,68 +350,6 @@ establish_pac<-function(potential_space,
 
 
   #distribute fields between farmers
-  if(assign_farmers == TRUE){
-
-    #mode 1 random distribution
-    if(assign_mode == 1){
-      num_fields<-length(field_list)
-      k <- 1
-      farmer_num <- 1
-      while(k <= num_fields){
-        ran_fields<-rlnorm(1, meanlog = log(mean_fields_per_farm), sdlog = log(sd_fields_per_farm))
-        ran_fields<-ceiling(ran_fields)
-        for(q in 1:ran_fields){
-          if(k > num_fields){
-            break
-          }
-          field_list[[k]]@farmer <- farmer_num
-          q <- q + 1
-          k <- k + 1
-        }
-        farmer_num <- farmer_num + 1
-      }
-    }
-
-    #mode 2 structured distribution
-    if(assign_mode == 2){
-      sd_fields_per_farm <- sd_fields_per_farm
-      num_fields<-length(field_list)
-      field_touple = data.frame(matrix(vector(), 0, 2,
-                                       dimnames=list(c(), c("Field", "Size"))),
-                                stringsAsFactors=F)
-      #have a vector that tells me distance between every field and 0,0
-      for(i in 1:num_fields){
-        temp_field<-field_list[[i]]
-        temp_x<-min(temp_field@location[[1]])
-        temp_y<-min(temp_field@location[[2]])
-        dist<-sqrt(temp_x^2 + temp_y^2)
-        temp_obj<-c(i,dist)
-        field_touple<-rbind(field_touple,temp_obj)
-      }
-      #order fields by distance from raster origin
-      field_touple <- field_touple[order(field_touple[,2]),]
-      k <- 1
-      farmer_num <- 1
-      while(k <= nrow(field_touple)){
-        ran_fields<-rlnorm(1, meanlog = log(mean_fields_per_farm), sdlog = log(sd_fields_per_farm))
-        ran_fields<-ceiling(ran_fields)
-        for(q in 1:ran_fields){
-          loc<-field_touple[k,1]
-          if(is.na(loc)==TRUE){
-            break
-          }
-          field_list[[loc]]@farmer <- farmer_num
-          q <- q + 1
-          k <- k + 1
-        }
-        farmer_num <- farmer_num + 1
-      }
-
-
-
-    }
-
-  }
 
   #make sure the output extent is defined by cell size and has origin in 00
   terra::ext(land_raster)<-c(0, cell_size*ncol(land_raster), 0, cell_size*nrow(land_raster))

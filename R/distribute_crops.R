@@ -18,11 +18,7 @@
 #'                                 distribution = "norm",
 #'                                 mean_shape_index = 1,
 #'                                 sd_shape_index = 0.3,
-#'                                 percent = 75,
-#'                                 assign_farmers = TRUE,
-#'                                 assign_mode = 2,
-#'                                 mean_fields_per_farm = 3,
-#'                                 sd_fields_per_farm = 3)
+#'                                 percent = 75)
 #'
 #'
 #'crops_matrix <- data.frame(crop = c("Wheat", "Corn", "Soybean"),

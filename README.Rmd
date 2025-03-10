@@ -42,16 +42,12 @@ r<-generate_pn(500,500,1,1,3,0.005,TRUE, "land_percentage", percetange = 70)
 output<-establish_pac(potential_space= r,
                       cell_size=1,
                       includsion_value = 1,
-                      mean_field_size = 500,
-                      sd_field_size = 100,
+                      mean_field_size = 1000,
+                      sd_field_size = 500,
                       distribution = "norm",
-                      mean_shape_index = 1,
-                      sd_shape_index = 0.3,
-                      percent = 90,
-                      assign_farmers = TRUE,
-                      assign_mode = 2,
-                      mean_fields_per_farm = 3,
-                      sd_fields_per_farm = 3)
+                      mean_shape_index = 4,
+                      sd_shape_index = 1,
+                      percent = 80)
 
 
 return_by_field(output, method = 1)
