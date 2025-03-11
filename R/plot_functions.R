@@ -70,11 +70,12 @@ return_by_farmer<-function(output_obj, method = 1){
 #'
 #' @param output_obj an output object of one of the establish functions
 #' @param method 1 is plot directly 2 returns a raster of crop type
+#' @param borders States if field borders will be placed on the plot
 #'
 #' @export
 #' @importFrom grDevices colors
 #'
-return_by_arable_land<-function(output_obj, method = 1){
+return_by_arable_land<-function(output_obj, borders = FALSE,  method = 1){
   land = matrix(0, nrow(output_obj$map), ncol(output_obj$map))
 
   for(i in 1:length(output_obj$field_list)){
@@ -97,9 +98,19 @@ return_by_arable_land<-function(output_obj, method = 1){
   terra::ext(land_raster)<-terra::ext(output_obj$map)
 
   if(method == 1){
+    if(borders == FALSE){
     polygons <- terra::as.polygons(land_raster, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
     terra::plot(land_raster, legend = FALSE)
     terra::plot(polygons, add = TRUE, border = "black", lwd = 1)
+    }
+    if(borders == TRUE){
+    terra::plot(land_raster, legend = FALSE)
+    fields <- return_by_field(output_obj, method =2)
+    polygons <- terra::as.polygons(fields, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
+    terra::plot(polygons, add = TRUE, border = "black", lwd = 1)
+
+
+    }
   }
   if(method == 2){
     return(land_raster)

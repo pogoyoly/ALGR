@@ -4,10 +4,12 @@
 \alias{return_by_arable_land}
 \title{return by arable land}
 \usage{
-return_by_arable_land(output_obj, method = 1)
+return_by_arable_land(output_obj, borders = FALSE, method = 1)
 }
 \arguments{
 \item{output_obj}{an output object of one of the establish functions}
+
+\item{borders}{States if field borders will be placed on the plot}
 
 \item{method}{1 is plot directly 2 returns a raster of crop type}
 }
