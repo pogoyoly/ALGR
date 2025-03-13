@@ -43,7 +43,7 @@ A perlin noise based potential space map generator
 }
 \examples{
 test<-generate_pn(200,200,1,2,3,0.01,TRUE, "land_percentage", percetange = 75)
-raster::plot(test)
+terra::plot(test)
 
 
 
