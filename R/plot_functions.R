@@ -48,8 +48,9 @@ return_by_farmer<-function(output_obj, method = 1){
 
   #end test
   if(method == 1){
-    polygons <- terra::as.polygons(land_raster, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
     terra::plot(land_raster, legend = FALSE)
+    fields <- return_by_field(output_obj, method =2)
+    polygons <- terra::as.polygons(fields, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
     terra::plot(polygons, add = TRUE, border = "black", lwd = 1)
 
   }
@@ -200,8 +201,9 @@ return_by_crop<-function(output_obj, method = 1){
   terra::ext(land_raster)<-terra::ext(output_obj$map)
 
   if(method == 1){
-    polygons <- terra::as.polygons(land_raster, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
     terra::plot(land_raster, legend = FALSE)
+    fields <- return_by_field(output_obj, method =2)
+    polygons <- terra::as.polygons(fields, n=8,fun=function(x){x > 0}, na.rm=TRUE, digits=12, dissolve=TRUE)
     terra::plot(polygons, add = TRUE, border = "black", lwd = 1)
   }
   if(method == 2){

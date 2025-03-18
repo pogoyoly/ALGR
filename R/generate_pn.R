@@ -42,7 +42,7 @@ generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity,
   # Set the parameters
   map_width <- width
   map_height <- height
-  cell_size <- cellSize
+  cell_size <- 1
 
   # Generate Perlin noise map
   perlin_map <- ambient::noise_perlin(
@@ -114,6 +114,11 @@ generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity,
 
     slope_gen <- terra::classify(rast_data, rcl = rclmat, include.lowest = FALSE)
   }
+
+  #change field size to user defined
+  terra::ext(slope_gen)<- c(0, terra::ext(slope_gen)[2]* cellSize, 0,  terra::ext(slope_gen)[4]* cellSize)
+  terra::ext(rast_data)<- c(0, terra::ext(rast_data)[2]* cellSize, 0,  terra::ext(rast_data)[4]* cellSize)
+
 
   # Return categorized or raw slope raster
   if (categorized == TRUE) {
