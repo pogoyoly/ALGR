@@ -30,4 +30,6 @@ coverage:
       token: ${{ secrets.CODECOV_TOKEN }}
       slug: pogoyoly/ALGR
 
+codecov:
+  token: b982e0dd-dd56-4c84-b49e-7240c0c557fa
 
