@@ -1,6 +1,6 @@
 Package: ALGR
 Title: Agricultural landscape generator
-Version: 1.0.0
+Version: 1.0.1
 Authors@R:  c(
     person("Eyal", "Goldstein", email = "pogoyoly@gmai.com",  role = c("aut", "cre")),
     person("Antonia", "Deutcher", email = "antdeutscher@gmail.com", role = "ctb"),
