@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/pogoyoly/ALGR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pogoyoly/ALGR/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/pogoyoly/ALGR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/pogoyoly/ALGR?branch=main)
 <!-- badges: end -->
 
 ALGR is an agricultural landcover generator that is designed to ease the
