@@ -23,3 +23,11 @@ coverage:
         target: auto
         threshold: 1%
         informational: true
+
+- name: Upload coverage reports to Codecov
+    uses: codecov/codecov-action@v5
+    with:
+      token: ${{ secrets.CODECOV_TOKEN }}
+      slug: pogoyoly/ALGR
+
+
