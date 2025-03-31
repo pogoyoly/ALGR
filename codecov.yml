@@ -23,7 +23,5 @@ coverage:
         threshold: 1%
         informational: true
 
-- name: Test coverage
-  run: Rscript -e 'covr::codecov()'
 
 
