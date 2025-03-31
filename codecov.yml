@@ -8,6 +8,7 @@ after_success:
 
 - Rscript -e 'covr::codecov()'
 
+comment: false
 
 coverage:
   status:
@@ -21,10 +22,6 @@ coverage:
         target: auto
         threshold: 1%
         informational: true
-
-
-codecov:
-  token: f5ef932d-5b1e-4b30-acc4-064e78838d61
 
 - name: Test coverage
   run: Rscript -e 'covr::codecov()'
