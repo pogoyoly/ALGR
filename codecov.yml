@@ -27,9 +27,11 @@ coverage:
 - name: Upload coverage reports to Codecov
     uses: codecov/codecov-action@v5
     with:
-      token: ${{ f5ef932d-5b1e-4b30-acc4-064e78838d61 }}
+      token: ${{ secrets.CODECOV_TOKEN }}
       slug: pogoyoly/ALGR
 
+codecov:
+  token: f5ef932d-5b1e-4b30-acc4-064e78838d61
 
 - name: Test coverage
   run: Rscript -e 'covr::codecov()'
