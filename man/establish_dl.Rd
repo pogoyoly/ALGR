@@ -36,7 +36,7 @@ establish_dl(
 \item{percent}{percent of the potential space to be filled with fields}
 }
 \value{
-LGraf object
+ALGR object
 }
 \description{
 Field establishment based on a dead leave algorithm

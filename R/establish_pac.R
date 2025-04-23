@@ -13,7 +13,7 @@
 #' @param sd_shape_index sd shape index calculated by a relation between width/length of placement
 #' @param percent percent of the potential space to be filled with fields
 #'
-#' @return LGraf object
+#' @return ALGR object
 #' @export
 #' @importFrom stats na.omit rlnorm rnorm runif setNames
 #' @importFrom methods new

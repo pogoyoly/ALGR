@@ -39,7 +39,7 @@ establish_pac(
 \item{percent}{percent of the potential space to be filled with fields}
 }
 \value{
-LGraf object
+ALGR object
 }
 \description{
 Establish landscape by place and conquer
