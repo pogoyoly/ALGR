@@ -2,7 +2,7 @@
 % Please edit documentation in R/establish_tes.R
 \name{establish_tes}
 \alias{establish_tes}
-\title{establish_tes}
+\title{Generate fields using a tesselation algorithm}
 \usage{
 establish_tes(
   potential_space,
@@ -30,7 +30,7 @@ establish_tes(
 ALGR object
 }
 \description{
-establish_tes
+Generate fields using a tesselation algorithm
 }
 \examples{
 
@@ -42,9 +42,9 @@ terra::plot(test)
 result <- establish_tes(
  potential_space = test,
  includsion_value = 1,
- mean_field_size = 50,
- sd_field_size = 50,
- mean_shape_index = 3,
+ mean_field_size = 25,
+ sd_field_size = 25,
+ mean_shape_index = 2,
  sd_shape_index = 2)
 
 return_by_field(result, method = 1)

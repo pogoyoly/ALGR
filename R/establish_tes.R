@@ -1,5 +1,5 @@
-# Generate fields using a tesselation algorithm
-#' establish_tes
+# establish_tes
+#' Generate fields using a tesselation algorithm
 #'
 #' @param potential_space a raster including a potential space category for field placement
 #' @param includsion_value inclusion value for the potential space raster
@@ -21,9 +21,9 @@
 #'result <- establish_tes(
 #'  potential_space = test,
 #'  includsion_value = 1,
-#'  mean_field_size = 50,
-#'  sd_field_size = 50,
-#'  mean_shape_index = 3,
+#'  mean_field_size = 25,
+#'  sd_field_size = 25,
+#'  mean_shape_index = 2,
 #'  sd_shape_index = 2)
 #'
 #'return_by_field(result, method = 1)
