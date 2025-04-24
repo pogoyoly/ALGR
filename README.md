@@ -36,19 +36,24 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(ALGR)
 ## basic example code
-r<-generate_pn(500,500,1,1,3,0.005,TRUE, "land_percentage", percetange = 70)
-output<-establish_pac(potential_space= r,
-                      cell_size=1,
-                      includsion_value = 1,
-                      mean_field_size = 1000,
-                      sd_field_size = 500,
-                      distribution = "norm",
-                      mean_shape_index = 4,
-                      sd_shape_index = 1,
-                      percent = 80)
+potential_space<-generate_pn(100,100,1,1,3,0.005,TRUE, "land_percentage", percetange = 70)
 
-
-return_by_field(output, method = 1)
+terra::plot(potential_space)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+
+result <- establish_tes(
+  potential_space = potential_space,
+  includsion_value = 1,
+  mean_field_size = 50,
+  sd_field_size = 50,
+  mean_shape_index = 1,
+  sd_shape_index = 2)
+
+return_by_field(result, method = 1)
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
