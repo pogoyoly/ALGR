@@ -2,7 +2,7 @@
 % Please edit documentation in R/establish_pac.R
 \name{establish_pac}
 \alias{establish_pac}
-\title{Establish landscape by place and conquer}
+\title{Establish fields by a place and conquer algorithm}
 \usage{
 establish_pac(
   potential_space,
@@ -42,7 +42,7 @@ establish_pac(
 ALGR object
 }
 \description{
-Establish landscape by place and conquer
+Establish fields by a place and conquer algorithm
 }
 \examples{
 r<-terra::rast(matrix(1, nrow=50, ncol=50))

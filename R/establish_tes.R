@@ -1,5 +1,5 @@
 # establish_tes
-#' Generate fields using a tesselation algorithm
+#' Establish fields by a tesselation algorithm
 #'
 #' @param potential_space a raster including a potential space category for field placement
 #' @param includsion_value inclusion value for the potential space raster

@@ -1,6 +1,6 @@
 
 
-#' Establish landscape by place and conquer
+#' Establish fields by a place and conquer algorithm
 #'
 #' @param potential_space a raster including a potential space category for field placement
 #' @param cell_size cell size for output

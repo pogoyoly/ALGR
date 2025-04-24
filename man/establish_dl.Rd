@@ -2,7 +2,7 @@
 % Please edit documentation in R/establish_dl.R
 \name{establish_dl}
 \alias{establish_dl}
-\title{Field establishment based on a dead leave algorithm}
+\title{Establish fields by a dead leaves algorithm algorithm}
 \usage{
 establish_dl(
   potential_space,
@@ -39,7 +39,7 @@ establish_dl(
 ALGR object
 }
 \description{
-Field establishment based on a dead leave algorithm
+Establish fields by a dead leaves algorithm algorithm
 }
 \examples{
 r<-terra::rast(matrix(1, nrow=100, ncol=100))

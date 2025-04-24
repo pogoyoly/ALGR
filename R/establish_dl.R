@@ -1,5 +1,5 @@
 # Function to generate dead leaves texture
-#' Field establishment based on a dead leave algorithm
+#' Establish fields by a dead leaves algorithm algorithm
 #'
 #' @param potential_space a raster including a potential space category for field placement
 #' @param cell_size cell size for output

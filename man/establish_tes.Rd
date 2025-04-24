@@ -2,7 +2,7 @@
 % Please edit documentation in R/establish_tes.R
 \name{establish_tes}
 \alias{establish_tes}
-\title{Generate fields using a tesselation algorithm}
+\title{Establish fields by a tesselation algorithm}
 \usage{
 establish_tes(
   potential_space,
@@ -30,7 +30,7 @@ establish_tes(
 ALGR object
 }
 \description{
-Generate fields using a tesselation algorithm
+Establish fields by a tesselation algorithm
 }
 \examples{
 
