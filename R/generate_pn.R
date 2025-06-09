@@ -14,21 +14,21 @@
 #' @param categorized TRUE/FLASE tells you if the slope raster returns categorized or smooth
 #' @param cat_method either by slope_lim or land_percentage
 #' @param lim the slope degree cutoff for portential space where 1 will be potential space and 2 non potential space
-#' @param percetange if cat_method is land_percentage then the percentage of potential space is defined by this arg
+#' @param percentage if cat_method is land_percentage then the percentage of potential space is defined by this arg
 #'
 #' @export
 #' @import checkmate raster
 #' @importFrom ambient noise_perlin normalise
 #'
 #' @examples
-#' test<-generate_pn(200,200,1,2,3,0.01,TRUE, "land_percentage", percetange = 75)
+#' test<-generate_pn(200,200,1,2,3,0.01,TRUE, "land_percentage", percentage = 75)
 #' terra::plot(test)
 #'
 #'
 #'
 #'
 #'
-generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity, categorized, cat_method, lim = 0, percetange = 0) {
+generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity, categorized, cat_method, lim = 0, percentage = 0) {
 
   # Check function arguments
   checkmate::assert_count(width, positive = TRUE)
@@ -104,7 +104,7 @@ generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity,
   if (cat_method == "land_percentage") {
     slope_values <- terra::values(rast_data, na.rm = TRUE)
     sorted_slope_values <- sort(slope_values)
-    cutoff_index <- ceiling((percetange / 100) * length(sorted_slope_values))
+    cutoff_index <- ceiling((percentage / 100) * length(sorted_slope_values))
     slope_cutoff <- sorted_slope_values[cutoff_index]
 
     m <- c(0, slope_cutoff, 1,
