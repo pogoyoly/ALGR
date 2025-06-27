@@ -7,6 +7,11 @@
 #' @importFrom grDevices colors
 #'
 return_by_farmer<-function(output_obj, method = 1){
+
+  checkmate::assertList(output_obj, names = "named", len = 2)
+  checkmate::assertNames(names(output_obj), must.include = c("map", "field_list"))
+  checkmate::assertClass(output_obj$map, "SpatRaster")
+
   map<-output_obj$map
   obj_main<-output_obj$field_list
   land = matrix(0, nrow(map), ncol(map))
@@ -77,6 +82,11 @@ return_by_farmer<-function(output_obj, method = 1){
 #' @importFrom grDevices colors
 #'
 return_by_arable_land<-function(output_obj, borders = FALSE,  method = 1){
+
+  checkmate::assertList(output_obj, names = "named", len = 2)
+  checkmate::assertNames(names(output_obj), must.include = c("map", "field_list"))
+  checkmate::assertClass(output_obj$map, "SpatRaster")
+
   land = matrix(0, nrow(output_obj$map), ncol(output_obj$map))
 
   for(i in 1:length(output_obj$field_list)){
@@ -130,6 +140,11 @@ return_by_arable_land<-function(output_obj, borders = FALSE,  method = 1){
 #' @export
 #'
 return_by_field<-function(output_obj, method = 1){
+
+  checkmate::assertList(output_obj, names = "named", len = 2)
+  checkmate::assertNames(names(output_obj), must.include = c("map", "field_list"))
+  checkmate::assertClass(output_obj$map, "SpatRaster")
+
   land = matrix(0, nrow(output_obj$map), ncol(output_obj$map))
 
   for(i in 1:length(output_obj$field_list)){
@@ -177,6 +192,11 @@ return_by_field<-function(output_obj, method = 1){
 #' @export
 #'
 return_by_crop<-function(output_obj, method = 1){
+
+  checkmate::assertList(output_obj, names = "named", len = 2)
+  checkmate::assertNames(names(output_obj), must.include = c("map", "field_list"))
+  checkmate::assertClass(output_obj$map, "SpatRaster")
+
   land = matrix(0, nrow(output_obj$map), ncol(output_obj$map))
 
   for(i in 1:length(output_obj$field_list)){

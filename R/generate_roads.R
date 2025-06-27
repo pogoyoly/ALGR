@@ -11,7 +11,7 @@
 #' @importFrom gdistance transition geoCorrection shortestPath
 #'
 #' @examples
-#'test<-generate_pn(200,200,1,2,3,0.005,FALSE, "land_percentage", percetange = 50)
+#'test<-generate_pn(200,200,1,2,3,0.005,FALSE, "land_percentage", percentage = 50)
 #'test2<-generate_roads(2000,test)
 #'raster::plot(test2)
 #'

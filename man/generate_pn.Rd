@@ -14,7 +14,7 @@ generate_pn(
   categorized,
   cat_method,
   lim = 0,
-  percetange = 0
+  percentage = 0
 )
 }
 \arguments{
@@ -36,13 +36,13 @@ generate_pn(
 
 \item{lim}{the slope degree cutoff for portential space where 1 will be potential space and 2 non potential space}
 
-\item{percetange}{if cat_method is land_percentage then the percentage of potential space is defined by this arg}
+\item{percentage}{if cat_method is land_percentage then the percentage of potential space is defined by this arg}
 }
 \description{
 A perlin noise based potential space map generator
 }
 \examples{
-test<-generate_pn(200,200,1,2,3,0.01,TRUE, "land_percentage", percetange = 75)
+test<-generate_pn(200,200,1,2,3,0.01,TRUE, "land_percentage", percentage = 75)
 terra::plot(test)
 
 

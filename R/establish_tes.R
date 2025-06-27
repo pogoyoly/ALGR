@@ -14,7 +14,7 @@
 #' @examples
 #'
 #' # Create a raster with some potential space
-#'test<-ALGR::generate_pn(50,50,1,2,3,0.01,TRUE, "land_percentage", percetange = 75)
+#'test<-ALGR::generate_pn(50,50,1,2,3,0.01,TRUE, "land_percentage", percentage = 75)
 #'terra::plot(test)
 #'
 #'# Run the simulation
@@ -31,6 +31,14 @@
 establish_tes <- function(potential_space, includsion_value,
                             mean_field_size, sd_field_size,
                             mean_shape_index, sd_shape_index) {
+
+  checkmate::assertClass(potential_space, "SpatRaster")
+  checkmate::assert_numeric(includsion_value)
+  checkmate::assert_numeric(mean_field_size)
+  checkmate::assert_numeric(sd_field_size)
+  checkmate::assert_numeric(mean_shape_index)
+  checkmate::assert_numeric(sd_shape_index)
+  checkmate::assert_true(mean_shape_index >= 1 || mean_shape_index <= 5)
 
 
   value_to_count <- includsion_value

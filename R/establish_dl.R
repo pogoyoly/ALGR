@@ -42,6 +42,7 @@ establish_dl <- function(potential_space,
 ) {
   # Initialize empty canvas
 
+  checkmate::assertClass(potential_space, "SpatRaster")
   checkmate::assert_numeric(cell_size)
   checkmate::assert_numeric(includsion_value)
   checkmate::assert_numeric(mean_field_size)

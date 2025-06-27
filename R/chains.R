@@ -169,7 +169,7 @@ translr <- function(transition, rst, arable_val) {
 #'@examples
 #'set.seed(123)
 #'original_potential_space<-generate_pn(200,200,1,2,3,0.002,TRUE,
-#'                                                "land_percentage", percetange = 30)
+#'                                                "land_percentage", percentage = 30)
 #'corresponding_fields<-establish_pac(potential_space= original_potential_space,
 #'                                                 cell_size=1,
 #'                                                 includsion_value = 1,
@@ -183,7 +183,7 @@ translr <- function(transition, rst, arable_val) {
 #'map<-return_by_arable_land(corresponding_fields, method =2)
 #'set.seed(123)
 #'modified_potential_space<-generate_pn(200,200,1,2,3,0.002,TRUE,
-#'                                                "land_percentage", percetange = 50)
+#'                                                "land_percentage", percentage = 50)
 #'
 #'result<-ALGR::trans_1lr(modified_potential_space,map,5, arable_val = 1)
 #'par(mfrow=c(1,2))
@@ -196,6 +196,10 @@ translr <- function(transition, rst, arable_val) {
 #'
 trans_1lr <- function(rast, landcover, aggregation, arable_val = 1) {
 
+  checkmate::assertClass(rast, "SpatRaster")
+  checkmate::assertClass(landcover, "SpatRaster")
+  checkmate::assert_numeric(aggregation)
+  checkmate::assert_numeric(arable_val)
 
   target_value <- arable_val
 

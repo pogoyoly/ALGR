@@ -46,14 +46,14 @@ establish_pac<-function(potential_space,
                                      percent
 ){
 
-
+  checkmate::assertClass(potential_space, "SpatRaster")
   checkmate::assert_numeric(cell_size)
   checkmate::assert_numeric(includsion_value)
   checkmate::assert_numeric(mean_field_size)
   checkmate::assert_numeric(sd_field_size)
   checkmate::assert_numeric(mean_shape_index)
   checkmate::assert_numeric(sd_shape_index)
-  checkmate::assert_true(mean_shape_index >= 1 || mean_shape_index <= 2)
+  checkmate::assert_true(mean_shape_index >= 1 || mean_shape_index <= 5)
   checkmate::assert_numeric(percent)
 
 

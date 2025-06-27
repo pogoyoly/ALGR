@@ -35,7 +35,7 @@ Establish fields by a tesselation algorithm
 \examples{
 
 # Create a raster with some potential space
-test<-ALGR::generate_pn(50,50,1,2,3,0.01,TRUE, "land_percentage", percetange = 75)
+test<-ALGR::generate_pn(50,50,1,2,3,0.01,TRUE, "land_percentage", percentage = 75)
 terra::plot(test)
 
 # Run the simulation
