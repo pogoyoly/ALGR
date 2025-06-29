@@ -39,6 +39,17 @@ generate_pn <- function(width, height, cellSize, frequency, octaves, lacunarity,
   checkmate::assert_numeric(lacunarity)
   checkmate::assert_logical(categorized)
 
+  if (categorized && !cat_method %in% c("slope_lim", "land_percentage")) {
+    rlang::abort(paste0("Invalid 'cat_method': '", cat_method,
+                        "'. Must be 'slope_lim' or 'land_percentage' when 'categorized = TRUE'."))
+  }
+
+  if (cat_method == "land_percentage" && (percentage <= 0 || percentage >= 100)) {
+    rlang::warn(paste0("Percentage cutoff (", percentage,
+                       "%) is outside valid range (0 < p < 100). Using default value of 20%."))
+    percentage <- 20
+  }
+
   # Set the parameters
   map_width <- width
   map_height <- height

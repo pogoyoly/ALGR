@@ -46,10 +46,10 @@ r<-terra::rast(matrix(1, nrow=100, ncol=100))
 output <- establish_dl(potential_space = r,
                                                 cell_size = 1,
                                                 includsion_value = 1,
-                                                mean_field_size = 50,
+                                                mean_field_size = 200,
                                                 sd_field_size = 25,
                                                 distribution = "norm",
-                                                mean_shape_index = .5,
+                                                mean_shape_index = 5,
                                                 sd_shape_index = .1,
                                                 percent = 0.95)
 return_by_field(output)

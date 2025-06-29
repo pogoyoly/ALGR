@@ -53,9 +53,30 @@ establish_pac<-function(potential_space,
   checkmate::assert_numeric(sd_field_size)
   checkmate::assert_numeric(mean_shape_index)
   checkmate::assert_numeric(sd_shape_index)
-  checkmate::assert_true(mean_shape_index >= 1 || mean_shape_index <= 5)
   checkmate::assert_numeric(percent)
 
+  if (mean_shape_index < 1 || mean_shape_index > 5) {
+    rlang::abort("mean_shape_index must be between 1 and 5.")
+  }
+
+
+  # Compute raster dimensions
+  raster_nrow <- nrow(potential_space)
+  raster_ncol <- ncol(potential_space)
+  raster_total_cells <- raster_nrow * raster_ncol
+
+  # Estimate maximum expected field size (conservative ~99.7% of normal range)
+  expected_max_field_size <- mean_field_size + 3 * sd_field_size
+
+  # Check if expected field is larger than available space
+  if (expected_max_field_size > raster_total_cells) {
+    rlang::abort(paste0(
+      "Mean field size (plus 3*SD) is too large for the raster.\n",
+      "Expected max field size: ", expected_max_field_size,
+      " vs raster cells: ", raster_total_cells, ".\n",
+      "Reduce mean_field_size or adjust raster extent."
+    ))
+  }
 
   if(is.null(additional_lim) == FALSE){
     #make sure all rasters are the same size
@@ -102,16 +123,22 @@ establish_pac<-function(potential_space,
     while(field_placed == FALSE){
 
       #set field size and shape index
-      if(distribution == "norm"){
-        field_size <- max(1, round(rnorm(1, mean=mean_field_size, sd=sd_field_size)))
-      }
-      if(distribution == "lnorm"){
+      if (distribution == "norm") {
+        field_size <- max(1, round(rnorm(1, mean = mean_field_size, sd = sd_field_size)))
+      } else if (distribution == "lnorm") {
         mu_N <- log(mean_field_size^2 / sqrt(sd_field_size^2 + mean_field_size^2))
         sigma_N <- sqrt(log(1 + (sd_field_size^2 / mean_field_size^2)))
-
         field_size <- max(1, round(rlnorm(1, meanlog = mu_N, sdlog = sigma_N)))
-
+      } else if (distribution == "unif") {
+        min_val <- max(1, mean_field_size - sd_field_size)
+        max_val <- mean_field_size + sd_field_size
+        field_size <- max(1, round(runif(1, min = min_val, max = max_val)))
+      } else {
+        rlang::abort(paste0("Unsupported distribution type: '", distribution,
+                            "'. Choose one of 'norm', 'lnorm', or 'unif'."))
       }
+
+
       shape_index <- rnorm(1, mean=mean_shape_index, sd=sd_shape_index)
       if(shape_index <= 1){
         shape_index<-1

@@ -12,6 +12,7 @@ return_by_farmer<-function(output_obj, method = 1){
   checkmate::assertNames(names(output_obj), must.include = c("map", "field_list"))
   checkmate::assertClass(output_obj$map, "SpatRaster")
 
+
   map<-output_obj$map
   obj_main<-output_obj$field_list
   land = matrix(0, nrow(map), ncol(map))
@@ -25,6 +26,10 @@ return_by_farmer<-function(output_obj, method = 1){
     farmer<-obj@farmer
 
     for(k in 1:length(col_range)){
+      if (row_range[k] > nrow(land) || col_range[k] > ncol(land)) {
+        rlang::warn(paste0("Field ", i, " has coordinates outside raster bounds. Skipping some values."))
+        next
+      }
       land[row_range[k], col_range[k]] <- farmer
     }
 
@@ -97,6 +102,10 @@ return_by_arable_land<-function(output_obj, borders = FALSE,  method = 1){
     col_range<-obj@location[[2]]
 
     for(k in 1:length(col_range)){
+      if (row_range[k] > nrow(land) || col_range[k] > ncol(land)) {
+        rlang::warn(paste0("Field ", i, " has coordinates outside raster bounds. Skipping some values."))
+        next
+      }
       land[row_range[k], col_range[k]] <- 1
     }
 
@@ -155,6 +164,10 @@ return_by_field<-function(output_obj, method = 1){
     col_range<-obj@location[[2]]
 
     for(k in 1:length(col_range)){
+      if (row_range[k] > nrow(land) || col_range[k] > ncol(land)) {
+        rlang::warn(paste0("Field ", i, " has coordinates outside raster bounds. Skipping some values."))
+        next
+      }
       land[row_range[k], col_range[k]] <- i
     }
 
@@ -209,6 +222,10 @@ return_by_crop<-function(output_obj, method = 1){
     crop<-obj@crop
 
     for(k in 1:length(col_range)){
+      if (row_range[k] > nrow(land) || col_range[k] > ncol(land)) {
+        rlang::warn(paste0("Field ", i, " has coordinates outside raster bounds. Skipping some values."))
+        next
+      }
       land[row_range[k], col_range[k]] <- crop
     }
 
